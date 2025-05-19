@@ -69,6 +69,32 @@ To manually re-initialize the database (e.g., for development), you can delete t
 
     The frontend will typically run on `http://localhost:5173`.
 
+## Running with Docker Compose
+
+You can use Docker Compose to build and run both the backend and frontend services with a single command.
+
+1.  Make sure you have Docker and Docker Compose installed on your system.
+2.  Navigate to the root directory of the project (`cup`).
+3.  Build the Docker images and start the services:
+
+    ```bash
+    docker compose up --build
+    ```
+
+    This will run the services in the foreground. To run them in the background, use the `-d` flag:
+
+    ```bash
+    docker compose up --build -d
+    ```
+
+4.  The backend will be accessible at `http://localhost:5000` and the frontend will be accessible at `http://localhost:80`.
+
+To stop the services, press `Ctrl+C` if running in the foreground, or run the following command in the project root directory if running in the background:
+
+```bash
+docker compose down
+```
+
 ## Testing
 
 Currently, there are no explicit automated tests included in the repository. You can perform manual testing by:

@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "5000:5000" # Assuming your backend runs on port 5000
+    volumes:
+      - ./cup.db:/app/cup.db
+      - ./uploads:/app/uploads
+
+  frontend:
+    build:
+      context: ./my-cup-frontend
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend 
